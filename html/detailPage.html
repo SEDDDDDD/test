@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wood Mall</title>
+    </head>
+    <link href="/css/detail.css" rel="stylesheet">
+    <script>
+        var index = 0; //이미지에 접근하는 인덱스
+        window.onload = function () {
+            slideShow();
+        }
+
+        function slideShow() {
+            var i;
+            var x = document.getElementsByClassName("slide1"); //slide1에 대한 dom 참조
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none"; //처음에 전부 display를 none으로 한다.
+            }
+            index++;
+            if (index > x.length) {
+                index = 1; //인덱스가 초과되면 1로 변경
+            }
+            x[index - 1].style.display = "block"; //해당 인덱스는 block으로
+            setTimeout(slideShow, 4000); //함수를 4초마다 호출
+        }
+    </script>
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <a href="#"><img src="/image/logo.jpg"></a>
+                </div>
+                <div class="login">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="menubar">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">소개</a>
+                        </li>
+                        <li>
+                        <a href="#">가구</a>
+                        <ul class="submenu">
+                            <li><a href="#">책상</a></li>
+                            <li><a href="#">의자</a></li>
+                        </ul>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+<article>
+        <div>
+            <div class="sideLeft">
+                <div id="changeImg">
+                    <img class="slide1" src="/image/chair.jpg" width="250">
+                    <img class="slide1" src="/image/chair2.jpg" width="250">
+                </div>
+                <div class="sideRight">
+                    <div class="sideRightName">
+                        <strong>원목 의자</strong><br>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="chooseOption">
+                            옵션선택<br>
+                        </div>
+                        <select class="optionSelect">
+                            <option name="option1">기본 포장 (+0원)</option>
+                            <option name="option2">안전 포장 (+6,000원)</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="button" name="basket" value="장바구니" id="bt"> 
+                        <input
+                            type="button"
+                            name="buy"
+                            value="구매"
+                            onclick="location.href='orderPage.html'">
+                    </div>
+
+                </div>
+            </div>
+        </article>
+            <br>
+            <!-- 탭 메뉴(상세, 리뷰, QNA) -->
+            <div class="tab-area">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">상세정보</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">리뷰</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">Q&A</label>
+
+        
+                <div id="content1" class="tab-content red">
+                    흐하흐하<!-- 이부분에 넣고 싶은 내용을 넣으면 된다 -->
+                </div>
+                <div id="content2" class="tab-content blue">
+                    하흐하흐<!-- 이부분에 넣고 싶은 내용을 넣으면 된다 -->
+                </div>
+                <div id="content3" class="tab-content yellow">
+                    호롤롤ㄹ로<!-- 이부분에 넣고 싶은 내용을 넣으면 된다 -->
+                </div>
+
+            </div>
+<!-- <article style="display:flex;
+                text-align:center;
+                margin-left:70px;
+                margin-right:70px;
+                background-color: black;
+                ">
+    <div style="flex:30;
+                border:1px solid white;">상품 상세</div>
+    <div style="flex:30;
+                border:1px solid white;">리뷰</div>
+    <div style="flex:30;
+                border:1px solid white;">QNA</div>
+</article> -->
+        </div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div class="footer">
+        <div class="sns">
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
+            <a href="#"><img src="#"></a>
+        </div>
+        <div class="inform">
+            <div class="gul1">
+                <h1>All Contents Copyrigth 2022 abcd Inc. All Right Reserved</h1>
+                <h1>Contact Mail: abcd@efghi.com Tel:+82 32 123 4567 Fax + 82 32 1234567</h1>
+            </div>
+            <div class="gul2">
+                <a href="#">이용약관</a>
+                <a href="#">개인정보취급 방침</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

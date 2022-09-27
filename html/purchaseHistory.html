@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- 날짜스크립트 -->
+        <script type="text/javascript">
+            document
+                .getElementById('dateStart')
+                .value = new Date()
+                .toISOString()
+                .substring(0, 10);;
+        </script>
+        <link href="/css/purchaseHistory.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="header">
+                <div class="logo">
+                    <a href="#"><img src="/image/logo.jpg"></a>
+                </div>
+                <div class="login">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">장바구니</a>
+                </div>
+                <div class="menubar">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">소개</a>
+                        </li>
+                        <li>
+                            <a href="#">가구</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#">책상</a>
+                                </li>
+                                <li>
+                                    <a href="#">의자</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">고객센터</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <article style="display:flex">
+<div class="sideMenu">
+    <div>
+        <div>구매내역</div><br>
+        <div>정보변경</div><br>
+        <div>QNA내역</div>
+    </div>
+</div>
+            <div class="search-top">
+                <div align="center">
+                    <table border="1" width="60%" align="center">
+                        <tr>
+                            <th>기간조회</th>
+                            <td>
+                                <form action="">
+                                    &nbsp;<input type="date" id="dateStart" name="dateStart">
+                                    ~
+                                    &nbsp;<input type="date" id="dateEnd" name="dateEnd"><br>
+                                    &nbsp;<input type="text" name="findProduct" placeholder="상품명을 검색하세요" size="30">
+                                    &nbsp;<input type="submit" value="조회">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="search-bottom" align="center">
+                    <table width="60%" align="center">
+                        <th>주문 일자</th>
+                        <th>상품 정보</th>
+                        <th>수량</th>
+                        <th>상품 금액</th>
+                        <th>배송비</th>
+                        <th>주문 상태</th>
+                        <tr align="center">
+                            <td >2022-09-09</td>
+                            <td>원목 의자</td>
+                            <td>1개</td>
+                            <td>190,000원</td>
+                            <td>5,000원</td>
+                            <td>배송 완료</td>
+                        </tr>
+                        <tr align="center">
+                            <td>2021-02-10</td>
+                            <td>게이밍 원목 책상</td>
+                            <td>1개</td>
+                            <td>390,000원</td>
+                            <td>7,000원</td>
+                            <td>배송 완료</td>
+                        </tr>
+                        <tr align="center">
+                            <td>2021-01-03</td>
+                            <td>참나무 탁자</td>
+                            <td>2개</td>
+                            <td>200,000원</td>
+                            <td>5,000원</td>
+                            <td>배송 완료</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+        <footer>
+            <div class="footer">
+                <div class="sns">
+                    <a href="#"><img src="#"></a>
+                    <a href="#"><img src="#"></a>
+                    <a href="#"><img src="#"></a>
+                </div>
+                <div class="inform">
+                    <div class="gul1">
+                        <h1>All Contents Copyrigth 2022 abcd Inc. All Right Reserved</h1>
+                        <h1>Contact Mail: abcd@efghi.com Tel:+82 32 123 4567 Fax + 82 32 1234567</h1>
+                    </div>
+                    <div class="gul2">
+                        <a href="#">이용약관</a>
+                        <a href="#">개인정보취급 방침</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+
+
+/* 헤더 css (고정) */
+*{margin:0; padding:0; box-sizing:border-box;}
+ul,li{list-style:none;}
+a{text-decoration: none;}
+
+.header{
+    background-color:  aliceblue;
+    width:100%;
+    height:200px;
+}
+.logo>a{
+    display:flex;
+    float: left;
+    width:17%;
+}
+.login{
+    float: right;
+    margin-right: 20px;
+}
+.menu {
+
+    font-family: fantasy;
+    float:right;
+    display: flex;
+    width: 83%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.menu > li {
+    width: 40%; /*20*2=40%*/
+    float: left;
+    text-align: center;
+    line-height: 50px;
+    /*background-color: beige;*/
+}
+
+.menu a {
+    color: sienna;
+}
+
+.submenu > li {
+    line-height: 50px;
+    background-color:azure;
+}
+
+.submenu {
+    height: 0; /*ul의 높이를 안보이게 처리*/
+    overflow: hidden;
+    
+}
+.menu > li:hover {
+    background-color: skyblue;
+    transition-duration: 0.5s;
+}
+
+.menu > li:hover .submenu {
+    height: 100px; /*서브메뉴 li한개의 높이 50*2*/
+    transition-duration: 0.5s;
+    background-color: white;
+}
+
+/* footer css (고정) */
+
+.footer{
+    position: relative;
+    top:200px;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+}
+.sns > a > img{
+    position: relative;
+    top:20px;left: 2%;
+    display:inline-block;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    max-width:40px; width:100%; 
+    max-height: 40px; height: 100%;
+}
+.inform{
+    position: relative;
+    top:70%;
+    color:white;
+    font-size:5px;
+}
+.gul1{
+    float: left;
+}
+.gul2{
+    float:right;
+    
+}
+
+
+
+.sideMenu{
+    flex:15%; 
+    margin-top:15px; 
+    border-right:2px solid black;
+}
+
+.sideMenu > div{
+    margin-right:solid;
+}
+
+.search-top{
+    flex:80%;
+}
+
+.search-top > tr, th, td {
+    
+    white-space: nowrap;
+    font-size:20px;
+    border: 1px solid #444444;
+    margin: 20px 30px 50px 30px;
+}
+
+.search-bottom > th, tr, td {
+    margin: 20px 30px 50px 30px;
+    white-space: nowrap;
+    border:1px solid #444444; 
+    border-collapse: collapse;
+}
+
+.search-bottom > tr > th{
+    font-size:20px;
+}
