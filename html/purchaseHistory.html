@@ -5,14 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <!-- 날짜스크립트 -->
-        <script type="text/javascript">
-            document
-                .getElementById('dateStart')
-                .value = new Date()
-                .toISOString()
-                .substring(0, 10);;
-        </script>
         <link href="/css/purchaseHistory.css" rel="stylesheet">
     </head>
     <body>
@@ -65,7 +57,7 @@
                             <td>
                                 <form action="">
                                     &nbsp;<input type="date" id="dateStart" name="dateStart">
-                                    ~
+                                    &nbsp;~
                                     &nbsp;<input type="date" id="dateEnd" name="dateEnd"><br>
                                     &nbsp;<input type="text" name="findProduct" placeholder="상품명을 검색하세요" size="30">
                                     &nbsp;<input type="submit" value="조회">
@@ -110,6 +102,17 @@
                 </div>
             </div>
         </article>
+
+<!-- 날짜스크립트 -->
+<script type="text/javascript">
+    document
+        .getElementById('dateStart')
+        .value = new Date()
+        .toISOString()
+        .substring(0, 10);;
+</script>
+
+
 
         <footer>
             <div class="footer">

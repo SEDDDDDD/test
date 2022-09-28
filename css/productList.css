@@ -6,7 +6,7 @@ a{text-decoration: none;}
 .header{
     background-color:  aliceblue;
     width:100%;
-    height:200px;
+    height:20%;
 }
 .logo>a{
     display:flex;
@@ -22,7 +22,7 @@ a{text-decoration: none;}
     font-family: fantasy;
     float:right;
     display: flex;
-    width: 83%;
+    width: 100%;
     overflow: hidden;
     margin: auto;
 }
@@ -94,13 +94,7 @@ a{text-decoration: none;}
 
 
 
-body,
-ul,
-li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+
 .con {
     margin-left: auto;
     margin-right: auto;
@@ -130,38 +124,3 @@ li {
     border-bottom:2px solid black;
 }
 
-html,
-body {
-    overflow-x: hidden;
-}
-.con {
-    max-width: 1000px;
-}
-.list > ul > li {
-    width: calc(100% / 5);
-}
-
-.list > ul > li {
-    padding: 0 10px;
-}
-.list > ul {
-    margin: 0 -10px;
-}
-
-.list > ul > li > .product-name {
-    text-align: Center;
-    font-weight: bold;
-}
-.list > ul > li:hover > .product-name {
-    text-decoration: underline;
-}
-.list > ul > li > .product-price {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-.list > ul > li > .product-price::after {
-    content: "원";
-    font-size: 1rem;
-    font-weight:normal;
-}

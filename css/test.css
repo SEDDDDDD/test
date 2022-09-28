@@ -2,16 +2,24 @@
 ul,li{list-style:none;}
 a{text-decoration: none;}
 
-.header{
+header{
+    display:flex;
     background-color:  aliceblue;
     width:100%;
-    height:20%;
+    
 }
-.logo>a{
-    display:flex;
-    float: left;
-    width:17%;
+
+
+
+.logo{
+    flex:10%;
 }
+
+
+
+
+
+
 .login{
     float: right;
     margin-right: 20px;

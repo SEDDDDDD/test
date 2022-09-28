@@ -13,7 +13,7 @@ a{text-decoration: none;}
 .logo>a{
     display:flex;
     float: left;
-    width:17%;
+    
 }
 .login{
     float: right;
@@ -24,7 +24,7 @@ a{text-decoration: none;}
     font-family: fantasy;
     float:right;
     display: flex;
-    width: 83%;
+    width: 100%;
     overflow: hidden;
     margin: auto;
 }
