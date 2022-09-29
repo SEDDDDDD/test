@@ -1,9 +1,3 @@
-/* 헤더 css (고정) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 li,
 ul {
     list-style: none;

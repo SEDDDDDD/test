@@ -1,0 +1,37 @@
+/* footer css (고정) */
+*{margin:0; padding:0; box-sizing:border-box;}
+ul,li{list-style:none;}
+a{text-decoration: none;}
+
+.footer {
+    position: relative;
+    top: 200px;
+    height: 200px;
+    width: 100%;
+    background-color: black;
+}
+.sns > a > img {
+    position: relative;
+    top: 20px;
+    left: 2%;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    max-width: 40px;
+    width: 100%;
+    max-height: 40px;
+    height: 100%;
+}
+.inform {
+    position: relative;
+    top: 70%;
+    color: white;
+    font-size: 5px;
+}
+.gul1 {
+    float: left;
+}
+.gul2 {
+    float: right;
+
+}

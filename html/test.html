@@ -5,56 +5,153 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript"
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script type="text/javascript">function getPostCode() {
+        new daum.Postcode(
+            {
+                oncomplete: function(data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분. 각 주소의 노출 규칙에 따라 주소를 조합한다. 내려오는 변수가 값이 없는
+                    // 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var addr = ''; // 주소 변수
+                    var extraAddr = ''; // 참고항목 변수
+    
+                    //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                        addr = data.roadAddress;
+                    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                        addr = data.jibunAddress;
+                    }
+    
+                    // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                    if (data.userSelectedType === 'R') {
+                        // 법정동명이 있을 경우 추가한다. (법정리는 제외) 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                        if (data.bname !== ''
+                            && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        // 건물명이 있고, 공동주택일 경우 추가한다.
+                        if (data.buildingName !== ''
+                            && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', '
+                                + data.buildingName
+                                : data.buildingName);
+                        }
+                        // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                        // 조합된 참고항목을 해당 필드에 넣는다.
+                        document.getElementById("subAddress").value = extraAddr;
+    
+                    } else {
+                        document.getElementById("subAddress").value = '';
+                    }
+    
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('postNum').value = data.zonecode;
+                    document.getElementById("mainAddress").value = addr;
+                    // 커서를 상세주소 필드로 이동한다.
+                    document.getElementById("detailAddress")
+                        .focus();
+                }
+            }).open();
+    }
+    </script>
 </head>
-<link href="/css/test.css" rel="stylesheet">
-<body>
-    <header>
-        <div class="logo">
-            <img src="/image/logo.jpg" width="70%">
-        </div>
-        <div style="flex:90%">
-            <div class="login">
-                <a href="#">로그인</a>
-                <a href="#">회원가입</a>
-                <a href="#">장바구니</a>
-            </div>
-            <div class="menubar">
-                <ul class="menu">
-                    <li>
-                        <a href="#">소개</a>
-                    </li>
-                    <li>
-                    <a href="#">가구</a>
-                    <ul class="submenu">
-                        <li><a href="#">책상</a></li>
-                        <li><a href="#">의자</a></li>
-                    </ul>
-                    </li>
-                    <li>
-                        <a href="#">고객센터</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <footer class="footer">
-    <div>
-        <div class="sns">
-            <a href="#"><img src="#"></a>
-            <a href="#"><img src="#"></a>
-            <a href="#"><img src="#"></a>
-        </div>
-        <div class="inform">
-            <div class="gul1">
-                <h1>All Contents Copyrigth 2022 abcd Inc. All Right Reserved</h1>
-                <h1>Contact Mail: abcd@efghi.com Tel:+82 32 123 4567 Fax + 82 32 1234567</h1>
-            </div>
-            <div class="gul2">
-                <a href="#">이용약관</a>
-                <a href="#">개인정보취급 방침</a>
-            </div>
-        </div>
-    </div>
-</footer>
+<body style="position:absolute;left:30%;right:30%">
+	<h2 align="center">회원 가입</h2>
+	<h6>*표시 항목은 필수 입력 항목입니다.</h6>
+	<form action="./join.do" method="post" name="frm">
+		<table>
+			<tr>
+				<td id=tableMember style="text-align: center">아이디*</td>
+				<td><input type="text" name="userid" id="userid" placeholder="10자 이내로 작성">
+				<!-- 중복체크 수행 -->
+				<input type="hidden" name="checkid"> 
+				<input type="button" onclick="checkId()" value="중복체크"></td>
+			</tr>
+			<tr>
+				<td id=tableMember style="text-align: center">암호*</td>
+				<td><input type="password" name="pwd"></td>
+			</tr>
+			<tr>
+				<td id=tableMember style="text-align: center">암호확인*</td>
+				<td><input type="password" name="pwd_check"></td>
+			</tr>
+			<tr>
+				<td id=tableMember style="text-align: center">이름*</td>
+				<td><input type="text" name="name" placeholder="8자 이내로 작성" size="5"></td>
+
+			</tr>
+			<tr>
+				<td id=tableMember style="text-align: center">Email</td>
+				<td><input type="text" name="emailId" size="5">&nbsp; <select
+					name="emailAddress">
+						<option value="@gmail.com">@gmail.com</option>
+						<option value="@naver.com">@naver.com</option>
+						<option value="@hotmail.com">@hotmail.com</option>
+						<option value="@daum.net">@daum.net</option>
+						<option value="@nate.com">@nate.com</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td rowspan="3" align="center">주소</td>
+				<td><input type="text" id="postNum" name="postNum"
+					placeholder="우편번호" size="10px"> <input type="button"
+					onclick="getPostCode()" value="우편번호 찾기"></td>
+
+			</tr>
+			<tr>
+				<td><input type="text" id="mainAddress" name="mainAddress"
+					placeholder="주소"></td>
+			</tr>
+			<tr>
+				<td><input type="text" id="detailAddress" name="detailAddress"
+					placeholder="상세주소"> <input type="text" id="subAddress"
+					name="subAddress" placeholder="참고항목" size="20px"></td>
+			</tr>
+			<tr>
+				<td style="text-align: center">전화번호</td>
+				<td><select name="firstPhone">
+						<option value="02">02</option>
+						<option value="010">010</option>
+						<option value="011">011</option>
+						<option value="017">017</option>
+						<option value="018">018</option>
+						<option value="051">051</option>
+						<option value="052">052</option>
+						<option value="053">053</option>
+						<option value="032">032</option>
+						<option value="062">062</option>
+						<option value="042">042</option>
+						<option value="044">044</option>
+						<option value="033">033</option>
+						<option value="043">043</option>
+						<option value="041">041</option>
+						<option value="063">063</option>
+						<option value="061">061</option>
+						<option value="054">054</option>
+						<option value="055">055</option>
+						<option value="064">064</option>
+				</select>- <input type="text" name="midPhone" size="4">- <input
+					type="text" name="lastPhone" size="4"></td>
+			</tr>
+
+			<tr>
+				<td style="text-align: center">등급</td>
+				<td><input type="radio" name="admin" value="0"
+					checked="checked">일반회원 <input type="radio" name="admin"
+					value="1">관리자</td>
+
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="submit" value="확인" onclick="return checkJoin()">
+					<input type="reset" value="취소"></td>
+			</tr>
+		</table>
+
+	</form>
+
 </body>
 </html>

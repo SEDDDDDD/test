@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Merriweather:wght@900&display=swap');
+
+*{
+    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Merriweather', serif;
+    font-weight:bold;
+}
+
+.product-list{
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.products h3{
+    font-size: 24px;
+    color: #545454;
+    margin-top:60px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.product{
+    display: block;
+    width: 225px;
+    text-align: center;
+    text-decoration:none;
+    color: black;
+    float:left;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.product-name{
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+#wrapper{
+    height: auto;
+    min-height: 100%;
+    padding-bottom: (footer높이);
+  }
+  footer{
+    height: 200px;
+    position : relative;
+    transform : translateY(-100%);
+    top: 200px;
+    width: 100%;
+    background-color: black;
+  }
